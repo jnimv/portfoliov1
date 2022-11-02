@@ -48,7 +48,7 @@ const handleProjectsClick = () => {
         <Projects />
       </div>}
     {ContactShown &&
-      <div>
+      <div className='Contact'>
         <Contact />
       </div>}      
     </div>

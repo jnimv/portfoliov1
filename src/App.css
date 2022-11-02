@@ -35,3 +35,10 @@
   color: #61dafb;
 }
 
+.Contact img{
+  margin-top: 5vh;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+}
+
