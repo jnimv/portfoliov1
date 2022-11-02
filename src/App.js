@@ -1,23 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+import './Contact';
+import Contact from './Contact';
+import { useState } from 'react';
+import Experience from './Experience';
+import Projects from './Projects';
+
 
 function App() {
+
+const [ContactShown, setContactShown] = useState(false);
+const [experienceShown, setExperienceShown] = useState(false);
+const [projectsShown, setProjectsShown] = useState(false);
+
+const handleContactClick = () => {
+   setContactShown(true);
+   setExperienceShown(false);
+   setProjectsShown(false);
+}
+
+const handleExperienceClick = () => {
+  setContactShown(false);
+  setExperienceShown(true);
+  setProjectsShown(false);
+}
+
+const handleProjectsClick = () => {
+  setContactShown(false);
+  setExperienceShown(false);
+  setProjectsShown(true);
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header><h1>Welcome to my portfolio!</h1>
       </header>
+      <nav className="NavButtons">
+        <button onClick={handleExperienceClick}>Experience</button>
+        <button onClick={handleProjectsClick}>Projects</button>
+        <button onClick={handleContactClick}>Contact</button>
+      </nav>
+    {experienceShown &&
+      <div>
+        <Experience />
+      </div>}
+    {projectsShown &&
+      <div>
+        <Projects />
+      </div>}
+    {ContactShown &&
+      <div>
+        <Contact />
+      </div>}      
     </div>
   );
 }
